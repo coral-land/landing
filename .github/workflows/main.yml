@@ -23,14 +23,14 @@ jobs:
           hugo-version: "0.119.0"
           # extended: true
 
-      - name: Check directory structure
-        run: ls -la && find . -type d | sort
-
-      - name: Create examplesite directory if it doesn't exist
-        run: mkdir -p ./examplesite
+      - name: Setup examplesite theme
+        run: |
+          mkdir -p ./examplesite/themes
+          cp -r . ./examplesite/themes/coming-soon
+          find ./examplesite -type d | sort
 
       - name: Build
-        run: hugo --minify --source ./examplesite --themesDir ../.
+        run: hugo --minify --source ./examplesite
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
