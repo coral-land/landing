@@ -30,7 +30,7 @@ jobs:
         run: mkdir -p ./examplesite
 
       - name: Build
-        run: hugo --minify --source ./examplesite --themesDir ../.. --config ./examplesite/config.toml
+        run: hugo --minify --source ./examplesite --config ./examplesite/config.toml
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
