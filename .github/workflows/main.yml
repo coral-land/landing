@@ -26,7 +26,7 @@ jobs:
       - name: Setup examplesite theme
         run: |
           mkdir -p ./examplesite/themes
-          cp -r . ./examplesite/themes/coming-soon
+          cp -r ./* ./examplesite/themes/coming-soon/
           find ./examplesite -type d | sort
 
       - name: Build
