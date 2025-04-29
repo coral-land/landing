@@ -26,7 +26,8 @@ jobs:
       - name: Setup examplesite theme
         run: |
           mkdir -p ./examplesite/themes/coming-soon
-          cp -r ./* ./examplesite/themes/coming-soon/
+          # Exclude the examplesite directory itself from being copied to avoid recursive copy
+          find . -mindepth 1 -maxdepth 1 -not -name "examplesite" -exec cp -r {} ./examplesite/themes/coming-soon/ \;
           find ./examplesite -type d | sort
 
       - name: Build
